@@ -221,7 +221,7 @@ TEST(sort,normal)
     display_list(head);
 
 }
-
+*/
 
 TEST(delete,normal)
 {
@@ -248,7 +248,7 @@ TEST(delete,normal)
     i=add_to_list(head,str6);
 
     delete_from_list(head,2);
-
+	printf("\nmoi\n");
 }
 
 
@@ -280,13 +280,13 @@ TEST(delete,multi) {
     delete_from_list(head,12);
     delete_from_list(head,22);
     delete_from_list(head,25);
-    delete_from_list(head,32);
-    delete_from_list(head,38);
-
-    delete_from_list(head,380);
+	
+	EXPECT_EQ(delete_from_list(head,32),42);
+	EXPECT_EQ(delete_from_list(head,38),41);
+    EXPECT_EQ(delete_from_list(head,380),-1);
 }
 
-
+/*
 TEST(empty,normal) {
     char str[15]="List Start";
     char str1[10]="zero";

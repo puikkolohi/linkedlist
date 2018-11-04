@@ -70,14 +70,26 @@ int display_list(linked_list *ll)
 
 int delete_from_list(linked_list *ll, int index)
 {
-	int indexing=0;
-	while (ll!=NULL)
+	int indexing=0,noerror=0;
+
+	while (ll->next!=NULL)
 	{
-		if (ll->index == index)
+
+		if (ll->next->index == index)
 		{
-			
+
+			noerror++;
+			ll->next=ll->next->next;
 		}
+		
+		ll->index=indexing;
 		indexing++;
 		ll=ll->next;
 	}
+	if (noerror!=0)
+	{
+		return indexing;
+	}
+	else
+	return -1;
 }
